@@ -1,0 +1,10 @@
+Example 3
+Operation45
+disagree19
+15
+yes
+
+Explanation
+Fisrt, the program will takeoff the non brazilian alphabet characters, so the "Operation45" stay "peration" and the "disagree19" stays "disagree". 
+It took 8 operations to erease the string "peration" to "". Then, 8 concatenation operations (d, i, s, a, g, r, e, e) were needed to obtain the string "disagree".
+In this way, as it was possible to convert s to t using 16 operations but the k = 15 operations, the program printed "no".
