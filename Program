@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <iostream>
+#include <cstring>
+#include <locale>
+#include <bits/stdc++.h>
+#include <string>
+#include <sstream>
+//On this program, the operator enters 2 strings and one number of operations.
+//The program will make the operations to transform the first string on the second one
+// if the number of operations to execute that is lower or equal of the number of
+// operations that the operator input, the result show yes, if not, the result show no.
+using std::cout;
+using std::endl;
+using std::string;
+void ConcatRemove (string& s, string& t, int k){ // function ConcatRemove
+int operation = 0;
+int count2 = 0;
+  for (int count = 0; count < s.length (); count++) {
+if (islower (s[count]) == false){ // delete non brazilian alphabet characters from s
+s.erase (count, 1);
+}
+}
+for (int count = 0; count < t.length (); count++){// delete non brazilian alphabet characters from t
+if (islower (t[count]) == false){
+t.erase (count, 1);
+}
+}
+char draft[t.length ()];
+for (int i = 0; i < s.length (); i++){
+if (s[i] == t[i]){
+draft[operation] = s[i];// deleting extra characters
+operation++; //counting the operations
+}else{
+count2++;
+}
+}
+s = draft;
+for (int i = 1; i < t.length (); i++){
+if (draft[i] != t[i]){
+draft[i] = t[i]; // adding necessary characters
+count2++;//counting the operations
+}
+}
+if (k >= count2){ // testing the count of operations with the limit
+    cout << "yes" << endl;
+    }else{
+    cout << "no" << endl;
+    }
+}
+
+using namespace std;
+
+int main () {
+string a = "";
+cout << "Type the first string: ";
+getline (cin, a);
+string b = "";
+cout << "Type the second string: ";
+getline (cin, b);
+int c;
+cout << "Type the value of operations: ";
+cin >> c;
+ConcatRemove (a, b, c); // using the function ConcatRemove
+return 0;
+}
